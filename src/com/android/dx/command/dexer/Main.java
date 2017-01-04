@@ -712,9 +712,9 @@ public class Main {
                     outputResources.put(fixedName, bytes);
                 }
             }
-            if (lastModified < minimumFileAge) {
-                return true;
-            }
+//            if (lastModified < minimumFileAge) {
+//                return true;
+//            }
             processClass(fixedName, bytes);
             // Assume that an exception may occur. Status will be updated
             // asynchronously, if the class compiles without error.
