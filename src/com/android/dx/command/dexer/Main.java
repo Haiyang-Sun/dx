@@ -458,7 +458,7 @@ public class Main {
      * @return the bytes of the merged dex file, or null if both the update
      *     and the base dex do not exist.
      */
-    private static byte[] mergeIncremental(byte[] update, File base) throws IOException {
+    public static byte[] mergeIncremental(byte[] update, File base) throws IOException {
         Dex dexA = null;
         Dex dexB = null;
 
