@@ -61,7 +61,6 @@ public final class IndexMap {
     public final short[] protoIds;
     public final short[] fieldIds;
     public final short[] methodIds;
-    public final int[] methodIdInts;
     private final HashMap<Integer, Integer> typeListOffsets;
     private final HashMap<Integer, Integer> annotationOffsets;
     private final HashMap<Integer, Integer> annotationSetOffsets;
@@ -76,7 +75,6 @@ public final class IndexMap {
         this.protoIds = new short[tableOfContents.protoIds.size];
         this.fieldIds = new short[tableOfContents.fieldIds.size];
         this.methodIds = new short[tableOfContents.methodIds.size];
-        this.methodIdInts = new int[tableOfContents.methodIds.size];
         this.typeListOffsets = new HashMap<Integer, Integer>();
         this.annotationOffsets = new HashMap<Integer, Integer>();
         this.annotationSetOffsets = new HashMap<Integer, Integer>();
@@ -164,9 +162,6 @@ public final class IndexMap {
     }
 
     public int adjustMethod(int methodIndex) {
-    	if((methodIds[methodIndex] & 0xffff) != methodIdInts[methodIndex]){
-    		System.out.println("HAIYANG adjustMethod really found violation");
-    	}
         return methodIds[methodIndex] & 0xffff;
     }
 
