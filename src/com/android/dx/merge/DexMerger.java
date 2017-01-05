@@ -235,6 +235,7 @@ public final class DexMerger {
          * at a time.
          */
         public final void mergeSorted() {
+        	System.out.println("HAIYANG mergeSorted "+dexes.length);
             TableOfContents.Section[] sections = new TableOfContents.Section[dexes.length];
             Dex.Section[] dexSections = new Dex.Section[dexes.length];
             int[] offsets = new int[dexes.length];
@@ -481,10 +482,12 @@ public final class DexMerger {
 
             @Override void updateIndex(int offset, IndexMap indexMap, int oldIndex, int newIndex) {
                 if (newIndex < 0 || newIndex > 0xffff) {
-                    throw new DexIndexOverflowException(
-                        "method ID not in [0, 0xffff]: " + newIndex);
+//                    throw new DexIndexOverflowException(
+//                        "method ID not in [0, 0xffff]: " + newIndex);
+                	System.out.println("HAIYANG warning "+newIndex+" not in [0, 0xffff]");
                 }
                 indexMap.methodIds[oldIndex] = (short) newIndex;
+                indexMap.methodIdInts[oldIndex] = newIndex;
             }
 
             @Override void write(MethodId methodId) {
