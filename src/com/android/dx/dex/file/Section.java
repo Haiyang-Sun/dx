@@ -17,6 +17,7 @@
 package com.android.dx.dex.file;
 
 import com.android.dx.util.AnnotatedOutput;
+
 import java.util.Collection;
 
 /**
@@ -250,6 +251,7 @@ public abstract class Section {
      */
     protected final void throwIfPrepared() {
         if (prepared) {
+        	new Exception().printStackTrace();
             throw new RuntimeException("already prepared");
         }
     }
