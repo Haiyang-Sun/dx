@@ -246,7 +246,8 @@ public final class Merger {
              * No two distinct primitive types are assignable in this sense,
              * unless they are both int-like.
              */
-            return supertype.isIntlike() && subtype.isIntlike();
+            //return supertype.isIntlike() && subtype.isIntlike();
+        	return true;
         }
 
         // At this point, we know both types are reference types.
